@@ -10,6 +10,8 @@
     <title>MARK MUGA</title>
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.14/dist/lenis.css">
+    
 
 </head>
 <body>
@@ -33,7 +35,7 @@
     <h2 id="projects">Projects</h2>
     <details>
         <summary>
-            portfolio v1
+            Movie Buzz
         </summary>
         <table>
             <thead>
@@ -44,11 +46,35 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>portfolio v1</td>
+                    <td>Movie Buzz</td>
                     <td>
                         <p>
-                            <a href="http://github.com"><em>github</em></a>
-                            <img src="" alt="" width="" height="" >
+                            <a href="https://moviebuzzapp.vercel.app/"><em>LINK</em></a>
+                            <img src="moviebuzz.png" alt="" width="" height="" >
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </details>
+    <details>
+        <summary>
+            Portfolio
+        </summary>
+        <table>
+            <thead>
+                <tr>
+                    <th class="width-min">Name</th>
+                    <th class="width-auto">Descriptiom</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Portfolio</td>
+                    <td>
+                        <p>
+                            <a href="https://muga.vercel.app/"><em>LINK</em></a>
+                            <img src="portfolio.png" alt="" width="" height="" >
                         </p>
                     </td>
                 </tr>
@@ -56,5 +82,27 @@
         </table>
     </details>
     <hr>
+    <p style="text-align: center;"> © 2024 <em>MUGA</em></p>
+
+    <script src="https://unpkg.com/@studio-freight/lenis"></script>
+    <script>
+        // Initialize Lenis
+    const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => t * (2 - t),
+        smooth: true
+    });
+
+    // Use requestAnimationFrame to continuously update the scroll
+    function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    </script>
+
+
 </body>
 </html>
