@@ -90,7 +90,10 @@
     const lenis = new Lenis({
         duration: 1.2,
         easing: (t) => t * (2 - t),
-        smooth: true
+        smooth: true,
+        smoothWheel: true,
+        smoothTouch: true,
+        
     });
 
     // Use requestAnimationFrame to continuously update the scroll
