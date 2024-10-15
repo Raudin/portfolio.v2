@@ -7,12 +7,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
     <meta name="author" content="Mark Muga" />
     <meta name="dcterms.date" content="2024-08-26" />
-    <title>MARK MUGA - ABOUT ME</title>
+    <meta name="description" content="Mark's personal website showcasing projects and contact information">
+    <title>ABOUT | MARK MUGA</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="index.css" />
-
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.14/dist/lenis.css">
 </head>
 <body>
-    about me
+    <h1 class="title">MUGA MARK</h1>
+    <h2 id="projects">About Me</h2>
+    <hr>
+    <p style="text-align: center;"> © 2024 <em>MUGA</em></p>
+
+    <script src="https://unpkg.com/@studio-freight/lenis"></script>
+    <script>
+        // Initialize Lenis
+    const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => t * (2 - t),
+        smooth: true,
+        smoothWheel: true,
+        smoothTouch: true,
+        
+    });
+
+    // Use requestAnimationFrame to continuously update the scroll
+    function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    </script>
+
 </body>
 </html>
