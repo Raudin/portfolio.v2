@@ -19,7 +19,9 @@
 
 </head>
 <body>
-    <h1 class="title">MUGA MARK</h1>
+    <header>
+        <h1 class="title">MUGA MARK</h1>
+    </header>
     <div class="grid">
         <div>
             <p>A software engineer currently working at <em>SCHOOLTRY</em></p>
@@ -29,7 +31,7 @@
                 <a href="https://www.linkedin.com/in/markmuga/" target="_blank" rel="noopener noreferrer"><em>LINKEDIN</em></a>
             </p>
         </div>
-        <img src="pp1.png" alt="profile-pic" width="200px" height="200px">
+        <img src="pp1.png" alt="profile picture" width="200px" height="200px">
     </div>
     <nav>
         <button style="padding: 10px 20px; margin: 10px;">
@@ -45,7 +47,7 @@
             <thead>
                 <tr>
                     <th class="width-min">Name</th>
-                    <th class="width-auto">Descriptiom</th>
+                    <th class="width-auto">Description</th>
                 </tr>
             </thead>
             <tbody>
@@ -54,7 +56,7 @@
                     <td>
                         <p>
                             <a href="https://moviebuzzapp.vercel.app/" target="_blank" rel="noopener noreferrer"><em>LINK</em></a>
-                            <img src="moviebuzz.png" alt="" width="" height="" >
+                            <img src="moviebuzz.png" alt="Screenshot of Movie Buzz" width="" height="" >
                             <p>Powered by a comprehensive movie database, this Next.js web app puts you right in the heart of the action, showcasing the most popular movies at the moment.</p>
                             <p>Stack: Javascript, Tailwind CSS, NextJs</p>
                         </p>
@@ -80,7 +82,7 @@
                     <td>
                         <p>
                             <a href="https://muga.vercel.app/" target="_blank" rel="noopener noreferrer"><em>LINK</em></a>
-                            <img src="portfolio.png" alt="" width="" height="" >
+                            <img src="portfolio.png" alt="Screenshot of Portfolio website" width="" height="" >
                             <p>A portfolio website showcasing projects, educational background,work experience and contact information.</p>
                             <p>Stack: Javascript, HTML, CSS, React</p>
                         </p>
@@ -90,8 +92,21 @@
         </table>
     </details>
     <hr>
-    <p style="text-align: center;"> © 2024 <em>MUGA</em></p>
+    <p style="text-align: center;" id="dynamic-time">
+        <script>
+            function updateTime() {
+                const now = new Date();
+                const options = { year: 'numeric' ,month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false};
+                const formattedTime = now.toLocaleString('en-us', options);
+                document.getElementById('dynamic-time').innerHTML = `${formattedTime}`;
+            }
 
+            updateTime();
+            setInterval(updateTime, 1000);
+        </script>
+    </p>
+    <p style="text-align: center;">© <em>MUGA</em></p>
+    <hr>
     <script src="https://unpkg.com/@studio-freight/lenis"></script>
     <script>
         // Initialize Lenis
