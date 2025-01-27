@@ -15,39 +15,18 @@
     <title>Mark Muga</title>
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="reset.css" />
-    <link rel="preload" href="https://fonts.cdnfonts.com/css/jetbrains-mono-2" as="font" crossorigin>
+    <link href="https://fonts.cdnfonts.com/css/jetbrains-mono-2">
     <link rel="preload" href="index.css" as="style" onload="this.rel='stylesheet'">
     <noscript>
         <link rel="stylesheet" href="index.css">
     </noscript>
     <link rel="stylesheet" href="index.css" />
     <link rel="preload" href="assets/pp1.webp" as="image">
-    <link rel="preload" href="https://unpkg.com/lenis@1.1.14/dist/lenis.css">
+    <script src="https://unpkg.com/@studio-freight/lenis" defer></script>
 </head>
 
 <body>
-    <script src="https://unpkg.com/@studio-freight/lenis" defer></script>
-    <script>
-        // Initialize Lenis
-        const lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => t * (2 - t),
-            smooth: true,
-            smoothWheel: true,
-            smoothTouch: true,
-
-        });
-
-        // Use requestAnimationFrame to continuously update the scroll
-        function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
-
-        requestAnimationFrame(raf);
-
-    </script>
-    <header>
+    <header>    
         <h1 class="title">
             <a href="/" style="text-decoration: none; color: inherit;">MUGA MARK</a>
         </h1>
@@ -106,7 +85,7 @@
             <thead>
                 <tr>
                     <th class="width-min">Name</th>
-                    <th class="width-auto">Descriptiom</th>
+                    <th class="width-auto">Description</th>
                 </tr>
             </thead>
             <tbody>
@@ -200,11 +179,31 @@
 
             updateTime();
             setInterval(updateTime, 1000);
+
+            document.addEventListener('DOMContentLoaded', () => {
+            try {
+                const lenis = new Lenis({
+                    duration: 1.2,
+                    easing: (t) => t * (2 - t),
+                    smooth: true,
+                    smoothWheel: true,
+                    smoothTouch: true,
+                });
+
+                function raf(time) {
+                    lenis.raf(time);
+                    requestAnimationFrame(raf);
+                }
+
+                requestAnimationFrame(raf);
+            } catch (error) {
+                console.error('Error initializing Lenis:', error);
+            }
+        });
         </script>
     </p>
     <p style="text-align: center;">© <em>MUGA</em></p>
     <hr>
-
 
 
 </body>
