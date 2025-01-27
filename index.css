@@ -33,7 +33,7 @@
 }
 
 
-* + * {
+*+* {
   margin-top: var(--line-height);
 }
 
@@ -62,12 +62,18 @@ body {
   :root {
     font-size: 14px;
   }
+
   body {
     padding: var(--line-height) 1ch;
   }
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: var(--font-weight-bold);
   margin: calc(var(--line-height) * 2) 0 var(--line-height);
   line-height: var(--line-height);
@@ -79,6 +85,7 @@ h1 {
   margin-bottom: calc(var(--line-height) * 2);
   text-transform: uppercase;
 }
+
 h2 {
   font-size: 1rem;
   text-transform: uppercase;
@@ -92,6 +99,7 @@ hr {
   border: none;
   color: var(--text-color);
 }
+
 hr:after {
   display: block;
   content: "";
@@ -107,7 +115,8 @@ a {
   text-decoration-thickness: var(--border-thickness);
 }
 
-a:link, a:visited {
+a:link,
+a:visited {
   color: var(--text-color);
 }
 
@@ -118,6 +127,7 @@ p {
 strong {
   font-weight: var(--font-weight-bold);
 }
+
 em {
   font-style: italic;
 }
@@ -140,18 +150,17 @@ table {
   margin: 0 0 calc(var(--line-height) * 2);
 }
 
-th, td {
+th,
+td {
   border: var(--border-thickness) solid var(--text-color);
-  padding: 
-    calc((var(--line-height) / 2))
-    calc(1ch - var(--border-thickness) / 2)
-    calc((var(--line-height) / 2) - (var(--border-thickness)))
-  ;
+  padding:
+    calc((var(--line-height) / 2)) calc(1ch - var(--border-thickness) / 2) calc((var(--line-height) / 2) - (var(--border-thickness)));
   line-height: var(--line-height);
   vertical-align: top;
   text-align: left;
 }
-table tbody tr:first-child > * {
+
+table tbody tr:first-child>* {
   padding-top: calc((var(--line-height) / 2) - var(--border-thickness));
 }
 
@@ -159,9 +168,11 @@ table tbody tr:first-child > * {
 th {
   font-weight: 700;
 }
+
 .width-min {
   width: 0%;
 }
+
 .width-auto {
   width: 100%;
 }
@@ -169,9 +180,11 @@ th {
 .header {
   margin-bottom: calc(var(--line-height) * 2);
 }
+
 .header h1 {
   margin: 0;
 }
+
 .header tr td:last-child {
   text-align: right;
 }
@@ -182,12 +195,14 @@ p {
   hyphens: auto;
 }
 
-img, video {
+img,
+video {
   display: block;
   width: 100%;
   object-fit: contain;
   overflow: hidden;
 }
+
 img {
   font-style: italic;
   color: var(--text-color-alt);
@@ -203,6 +218,7 @@ summary {
   font-weight: var(--font-weight-medium);
   cursor: pointer;
 }
+
 details[open] summary {
   margin-bottom: var(--line-height);
 }
@@ -212,6 +228,7 @@ details ::marker {
   content: '▶';
   margin: 0;
 }
+
 details[open] ::marker {
   content: '▼';
 }
@@ -226,11 +243,13 @@ pre {
   margin: var(--line-height) 0;
   overflow-y: hidden;
 }
+
 figure pre {
   margin: 0;
 }
 
-pre, code {
+pre,
+code {
   font-family: var(--font-family);
 }
 
@@ -250,7 +269,8 @@ figcaption {
   margin-top: var(--line-height);
 }
 
-ul, ol {
+ul,
+ol {
   padding: 0;
   margin: 0 0 var(--line-height);
 }
@@ -259,11 +279,13 @@ ul {
   list-style-type: square;
   padding: 0 0 0 2ch;
 }
+
 ol {
   list-style-type: none;
   counter-reset: item;
   padding: 0;
 }
+
 ol ul,
 ol ol,
 ul ol,
@@ -271,7 +293,8 @@ ul ul {
   padding: 0 0 0 3ch;
   margin: 0;
 }
-ol li:before { 
+
+ol li:before {
   content: counters(item, ".") ". ";
   counter-increment: item;
   font-weight: var(--font-weight-medium);
@@ -287,14 +310,15 @@ li::marker {
 }
 
 ::-webkit-scrollbar {
-    height: var(--line-height);
+  height: var(--line-height);
 }
 
-input, button, textarea {
+input,
+button,
+textarea {
   border: var(--border-thickness) solid var(--text-color);
-  padding: 
-    calc(var(--line-height) / 2 - var(--border-thickness))
-    calc(1ch - var(--border-thickness));
+  padding:
+    calc(var(--line-height) / 2 - var(--border-thickness)) calc(1ch - var(--border-thickness));
   margin: 0;
   font: inherit;
   font-weight: inherit;
@@ -317,6 +341,7 @@ input[type=checkbox] {
   height: var(--line-height);
   cursor: pointer;
 }
+
 input[type=checkbox]:checked:before {
   content: "";
   width: 1ch;
@@ -324,7 +349,8 @@ input[type=checkbox]:checked:before {
   background: var(--text-color);
 }
 
-button:focus, input:focus {
+button:focus,
+input:focus {
   --border-thickness: 3px;
   outline: none;
 }
@@ -332,13 +358,16 @@ button:focus, input:focus {
 input {
   width: calc(round(down, 100%, 1ch));
 }
+
 ::placeholder {
   color: var(--text-color-alt);
   opacity: 1;
 }
+
 ::-ms-input-placeholder {
   color: var(--text-color-alt);
 }
+
 button::-moz-focus-inner {
   padding: 0;
   border: 0
@@ -353,6 +382,7 @@ button {
 button:hover {
   background: var(--background-color-alt);
 }
+
 button:active {
   transform: translate(2px, 2px);
 }
@@ -370,21 +400,25 @@ label input {
   width: 100%;
 }
 
-.tree, .tree ul {
+.tree,
+.tree ul {
   position: relative;
   padding-left: 0;
   list-style-type: none;
   line-height: var(--line-height);
 }
+
 .tree ul {
   margin: 0;
 }
+
 .tree ul li {
   position: relative;
   padding-left: 1.5ch;
   margin-left: 1.5ch;
   border-left: var(--border-thickness) solid var(--text-color);
 }
+
 .tree ul li:before {
   position: absolute;
   display: block;
@@ -394,9 +428,11 @@ label input {
   width: 1ch;
   border-bottom: var(--border-thickness) solid var(--text-color);
 }
+
 .tree ul li:last-child {
   border-left: none;
 }
+
 .tree ul li:last-child:after {
   position: absolute;
   display: block;
@@ -408,26 +444,63 @@ label input {
 }
 
 .grid {
-  --grid-cells: 0;
-  display: flex;
+  --grid-cells: 2;
+  /* Force 2 columns for this layout */
+  display: grid;
+  grid-template-columns: 1fr auto;
+  /* First column takes remaining space, second column takes auto width */
   gap: 1ch;
-  width: calc(round(down, 100%, (1ch * var(--grid-cells)) - (1ch * var(--grid-cells) - 1)));
+  /* Add gap between columns */
+  align-items: center;
+  /* Vertically center the content */
+  width: 100%;
+  /* Ensure the grid takes full width */
   margin-bottom: var(--line-height);
 }
 
-.grid > *,
-.grid > input {
-  flex: 0 0 calc(round(down, (100% - (1ch * (var(--grid-cells) - 1))) / var(--grid-cells), 1ch));
+/* Ensure the image is aligned to the right */
+.grid> :last-child {
+  justify-self: end;
+  /* Align the last child (image) to the end of the grid cell */
 }
-.grid:has(> :last-child:nth-child(1)) { --grid-cells: 1; }
-.grid:has(> :last-child:nth-child(2)) { --grid-cells: 2; }
-.grid:has(> :last-child:nth-child(3)) { --grid-cells: 3; }
-.grid:has(> :last-child:nth-child(4)) { --grid-cells: 4; }
-.grid:has(> :last-child:nth-child(5)) { --grid-cells: 5; }
-.grid:has(> :last-child:nth-child(6)) { --grid-cells: 6; }
-.grid:has(> :last-child:nth-child(7)) { --grid-cells: 7; }
-.grid:has(> :last-child:nth-child(8)) { --grid-cells: 8; }
-.grid:has(> :last-child:nth-child(9)) { --grid-cells: 9; }
+
+/* Optional: Add max-width to the image */
+
+.grid:has(> :last-child:nth-child(1)) {
+  --grid-cells: 1;
+}
+
+.grid:has(> :last-child:nth-child(2)) {
+  --grid-cells: 2;
+}
+
+.grid:has(> :last-child:nth-child(3)) {
+  --grid-cells: 3;
+}
+
+.grid:has(> :last-child:nth-child(4)) {
+  --grid-cells: 4;
+}
+
+.grid:has(> :last-child:nth-child(5)) {
+  --grid-cells: 5;
+}
+
+.grid:has(> :last-child:nth-child(6)) {
+  --grid-cells: 6;
+}
+
+.grid:has(> :last-child:nth-child(7)) {
+  --grid-cells: 7;
+}
+
+.grid:has(> :last-child:nth-child(8)) {
+  --grid-cells: 8;
+}
+
+.grid:has(> :last-child:nth-child(9)) {
+  --grid-cells: 9;
+}
 
 /* DEBUG UTILITIES */
 

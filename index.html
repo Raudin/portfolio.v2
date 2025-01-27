@@ -10,20 +10,43 @@
     <meta name="description" content="Mark's personal website showcasing projects and contact information">
     <meta property="og:title" content="Mark Muga">
     <meta property="og:description" content="Explore Mark's projects and professional background."">
-    <meta property="og:image" content="">
+    <meta property=" og:image" content="">
     <meta property="og:url" content="https://muga.vercel.app/">
     <title>Mark Muga</title>
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="reset.css" />
     <link rel="preload" href="https://fonts.cdnfonts.com/css/jetbrains-mono-2" as="font" crossorigin>
     <link rel="preload" href="index.css" as="style" onload="this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="index.css"></noscript>
+    <noscript>
+        <link rel="stylesheet" href="index.css">
+    </noscript>
     <link rel="stylesheet" href="index.css" />
     <link rel="preload" href="assets/pp1.webp" as="image">
     <link rel="preload" href="https://unpkg.com/lenis@1.1.14/dist/lenis.css">
 </head>
+
 <body>
     <script src="https://unpkg.com/@studio-freight/lenis" defer></script>
+    <script>
+        // Initialize Lenis
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => t * (2 - t),
+            smooth: true,
+            smoothWheel: true,
+            smoothTouch: true,
+
+        });
+
+        // Use requestAnimationFrame to continuously update the scroll
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+
+        requestAnimationFrame(raf);
+
+    </script>
     <header>
         <h1 class="title">
             <a href="/" style="text-decoration: none; color: inherit;">MUGA MARK</a>
@@ -35,12 +58,15 @@
             <p>Contact me at <a href="mailto:markmuga72@gmail.com"><em>markmuga72@gmail.com</em></a></p>
             <p>
                 <a href="https://github.com/raudin" target="_blank" rel="noopener noreferrer"><em>GITHUB</em></a>
-                <a href="https://www.linkedin.com/in/markmuga/" target="_blank" rel="noopener noreferrer"><em>LINKEDIN</em></a>
+                <a href="https://www.linkedin.com/in/markmuga/" target="_blank"
+                    rel="noopener noreferrer"><em>LINKEDIN</em></a>
             </p>
         </div>
-        <picture>
-            <img id="profile-picture" src="assets/pp1.webp" alt="profile picture" width="200px" height="200px">
-        </picture>
+        <div>
+            <picture>
+                <img id="profile-picture" src="assets/pp1.webp" alt="profile picture" width="200px" height="200px">
+            </picture>
+        </div>
         <script>
             document.addEventListener('DOMContentLoaded', () => {
                 const imgElement = document.getElementById('profile-picture');
@@ -57,7 +83,7 @@
                 };
             });
         </script>
-        
+
     </div>
     <nav>
         <button onclick="window.location.href='about-me.html'" style="
@@ -88,10 +114,16 @@
                     <td>Portfolio</td>
                     <td>
                         <p>
-                            <a href="https://github.com/Raudin/financial_aid" target="_blank" rel="noopener noreferrer"><em>LINK</em></a>
-                            <img src="assets/financialaid.webp" alt="Screenshot of financialaid site" width="1200" height="300" loading="lazy">
-                            <p>This a Django application that employs machine learning techniques, specifically logistic regression, to classify financial aid applicants and a CNN model to verify the authenticity of their submitted documents, including KCSE and KCPE certificates. Additionally, the application integrates the Africa's Talking API to send bulk SMS notifications, keeping students informed about the status of their applications.</p>
-                            <p>Stack: Python, Django, HTML, CSS, Javascript</p>
+                            <a href="https://github.com/Raudin/financial_aid" target="_blank"
+                                rel="noopener noreferrer"><em>LINK</em></a>
+                            <img src="assets/financialaid.webp" alt="Screenshot of financialaid site" width="1200"
+                                height="300" loading="lazy">
+                        <p>This a Django application that employs machine learning techniques, specifically logistic
+                            regression, to classify financial aid applicants and a CNN model to verify the authenticity
+                            of their submitted documents, including KCSE and KCPE certificates. Additionally, the
+                            application integrates the Africa's Talking API to send bulk SMS notifications, keeping
+                            students informed about the status of their applications.</p>
+                        <p>Stack: Python, Django, HTML, CSS, Javascript</p>
                         </p>
                     </td>
                 </tr>
@@ -114,10 +146,13 @@
                     <td>Movie Buzz</td>
                     <td>
                         <p>
-                            <a href="https://moviebuzzapp.vercel.app/" target="_blank" rel="noopener noreferrer"><em>LINK</em></a>
-                            <img src="assets/moviebuzz.webp" alt="Screenshot of Movie Buzz" width="1200" height="300" loading="lazy">
-                            <p>Powered by a comprehensive movie database, this Next.js web app puts you right in the heart of the action, showcasing the most popular movies at the moment.</p>
-                            <p>Stack: Javascript, Tailwind CSS, NextJs</p>
+                            <a href="https://moviebuzzapp.vercel.app/" target="_blank"
+                                rel="noopener noreferrer"><em>LINK</em></a>
+                            <img src="assets/moviebuzz.webp" alt="Screenshot of Movie Buzz" width="1200" height="300"
+                                loading="lazy">
+                        <p>Powered by a comprehensive movie database, this Next.js web app puts you right in the heart
+                            of the action, showcasing the most popular movies at the moment.</p>
+                        <p>Stack: Javascript, Tailwind CSS, NextJs</p>
                         </p>
                     </td>
                 </tr>
@@ -140,10 +175,13 @@
                     <td>Portfolio</td>
                     <td>
                         <p>
-                            <a href="https://mugamark.vercel.app/" target="_blank" rel="noopener noreferrer"><em>LINK</em></a>
-                            <img src="assets/portfolio.webp" alt="Screenshot of Portfolio website" width="1200" height="300" loading="lazy">
-                            <p>A portfolio website showcasing projects, educational background,work experience and contact information.</p>
-                            <p>Stack: Javascript, HTML, CSS, React</p>
+                            <a href="https://mugamark.vercel.app/" target="_blank"
+                                rel="noopener noreferrer"><em>LINK</em></a>
+                            <img src="assets/portfolio.webp" alt="Screenshot of Portfolio website" width="1200"
+                                height="300" loading="lazy">
+                        <p>A portfolio website showcasing projects, educational background,work experience and contact
+                            information.</p>
+                        <p>Stack: Javascript, HTML, CSS, React</p>
                         </p>
                     </td>
                 </tr>
@@ -155,7 +193,7 @@
         <script>
             function updateTime() {
                 const now = new Date();
-                const options = { year: 'numeric' ,month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false};
+                const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
                 const formattedTime = now.toLocaleString('en-us', options);
                 document.getElementById('dynamic-time').innerHTML = `${formattedTime}`;
             }
@@ -166,27 +204,9 @@
     </p>
     <p style="text-align: center;">© <em>MUGA</em></p>
     <hr>
-    <script>
-        // Initialize Lenis
-    const lenis = new Lenis({
-        duration: 1.2,
-        easing: (t) => t * (2 - t),
-        smooth: true,
-        smoothWheel: true,
-        smoothTouch: true,
-        
-    });
 
-    // Use requestAnimationFrame to continuously update the scroll
-    function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-
-    </script>
 
 
 </body>
+
 </html>
