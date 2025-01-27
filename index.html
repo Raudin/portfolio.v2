@@ -38,9 +38,24 @@
             </p>
         </div>
         <picture>
-            <source srcset="assets/pp.webp" type="image/webp" media="(min-width: 800px)">
-            <img src="assets/pp1.webp" alt="profile picture" width="200px" height="200px">
+            <img id="profile-picture" src="assets/pp1.webp" alt="profile picture" width="200px" height="200px">
         </picture>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const imgElement = document.getElementById('profile-picture');
+
+                const largerImage = new Image();
+                largerImage.src = 'assets/pp.webp';
+
+                largerImage.onload = () => {
+                    imgElement.src = largerImage.src;
+                };
+
+                largerImage.onerror = () => {
+                    console.error('Failed to load image');
+                };
+            });
+        </script>
         
     </div>
     <nav>
