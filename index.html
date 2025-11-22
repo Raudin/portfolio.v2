@@ -34,17 +34,17 @@
 <body>
     <header>    
         <h1 class="title">
-            <a href="/" style="text-decoration: none; color: inherit;">MUGA MARK</a>
+            <a href="/" class="scramble" style="text-decoration: none; color: inherit;">MUGA MARK</a>
         </h1>
     </header>
     <div class="grid">
         <div>
             <p>A software engineer currently working at <em>SCHOOLTRY</em></p>
-            <p>Contact me at <a href="mailto:markmuga72@gmail.com"><em>markmuga72@gmail.com</em></a></p>
+            <p>Contact me at <a href="mailto:markmuga72@gmail.com"><em class="scramble">markmuga72@gmail.com</em></a></p>
             <p>
-                <a href="https://github.com/raudin" target="_blank" rel="noopener noreferrer"><em>GITHUB</em></a>
+                <a href="https://github.com/raudin" target="_blank" rel="noopener noreferrer"><em class="scramble">GITHUB</em></a>
                 <a href="https://www.linkedin.com/in/markmuga/" target="_blank"
-                    rel="noopener noreferrer"><em>LINKEDIN</em></a>
+                    rel="noopener noreferrer"><em class="scramble">LINKEDIN</em></a>
             </p>
         </div>
         <div>
@@ -52,23 +52,6 @@
                 <img id="profile-picture" src="assets/pp1.webp" alt="profile picture" width="200px" height="200px">
             </picture>
         </div>
-        <!-- <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                const imgElement = document.getElementById('profile-picture');
-
-                const largerImage = new Image();
-                largerImage.src = 'assets/pp.webp';
-
-                largerImage.onload = () => {
-                    imgElement.src = largerImage.src;
-                };
-
-                largerImage.onerror = () => {
-                    console.error('Failed to load image');
-                };
-            });
-        </script> -->
-
     </div>
     <nav>
         <button onclick="window.location.href='about-me.html'" style="
@@ -161,8 +144,10 @@
             }
         });
         </script>
+
+        <script src="scramble.js"></script>
     </p>
-    <p style="text-align: center;">© <em>MUGA</em></p>
+    <p style="text-align: center;">© <em class="scramble">MUGA</em></p>
     <hr>
 
 
