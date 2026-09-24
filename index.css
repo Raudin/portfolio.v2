@@ -217,20 +217,27 @@ details {
 summary {
   font-weight: var(--font-weight-medium);
   cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
 }
 
-details[open] summary {
-  margin-bottom: var(--line-height);
+summary::-webkit-details-marker,
+summary::marker {
+  display: none;
+  content: "";
 }
 
-details ::marker {
+.details-wrapper {
+  overflow: hidden;
+}
+
+.summary-arrow {
   display: inline-block;
-  content: '▶';
-  margin: 0;
-}
-
-details[open] ::marker {
-  content: '▼';
+  transform-origin: center;
+  font-size: 0.8em;
 }
 
 details :last-child {
