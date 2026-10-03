@@ -1,0 +1,691 @@
+/* =========================================================================
+   hero.css
+   Header + Hero ported from indextocopy.html (Olivier Larose style).
+   Loaded AFTER index.css so it can safely override the theme + layout.
+   ========================================================================= */
+
+/* ---------- Dark theme + Inter font ---------- */
+:root {
+  --font-family: "Inter", sans-serif;
+  --text-color: #fff;
+  --text-color-alt: #b1b1b1;
+  --background-color: #121212;
+  --background-color-alt: #1d1d1d;
+}
+
+/* Widen the page so the Work Timeline boxes stretch to a decent width */
+body {
+  max-width: min(1100px, 96vw);
+}
+
+/* index.css `*+* { margin-top }` would add gaps inside the header/hero.
+   `position: relative` mirrors the source `.home` and gives the absolute
+   `.grid` overlay (and `.loader`) the right containing block. */
+#container {
+  margin-top: 0;
+  position: relative;
+}
+
+/* index.css keeps the browser default underline (+ 2px decoration thickness);
+   the ported design expects bare, un-decorated links (source `main.css`). */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.header,
+.header *,
+.hero,
+.hero * {
+  margin-top: 0;
+}
+
+/* Work Timeline boxes fill the wider page */
+table {
+  width: 100%;
+}
+
+/* ---------- Header ---------- */
+.header {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  font-size: 16px;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  column-gap: clamp(10px, 1.6vw, 20px);
+  row-gap: 4px;
+  padding: clamp(14px, 2.5vw, 20px);
+  text-transform: uppercase;
+  font-family: var(--font-family);
+  color: #fff;
+  z-index: 9999;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: clamp(14px, 1.1vw + 10px, 24px);
+  line-height: 1.1;
+  font-weight: 400;
+}
+
+.header a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.header .nav {
+  display: flex;
+  gap: clamp(12px, 1.4vw, 22px);
+}
+
+.header .nav a {
+  cursor: pointer;
+  position: relative;
+}
+
+.header .nav a:before {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 0;
+  background-color: #fff;
+  position: absolute;
+  top: 120%;
+  transition: width .5s ease-out;
+}
+
+.header .nav a:hover:before {
+  width: 100%;
+}
+
+.wavy-phrase-container {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+.wavy-phrase {
+  display: flex;
+  font-size: clamp(12px, 1vw + 8px, 22px);
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.wavy-phrase:nth-of-type(2) {
+  position: absolute;
+  top: 100%;
+}
+
+.wavy-phrase p {
+  margin: 0;
+}
+
+/* Header name + nav link sizes scale with the viewport via the clamp() values above. */
+
+/* ---------- Hero ---------- */
+.hero {
+  display: flex;
+  flex-direction: column;
+  /* source `.body` is sticky so the hero stays pinned while the page scrolls
+     beneath it and `mix-blend-mode: difference` inverts what passes under. */
+  position: sticky;
+  top: 0;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: Regular, "Inter", sans-serif;
+  mix-blend-mode: difference;
+  color: #fff;
+  z-index: 2;
+  pointer-events: none;
+  padding: 35vh 20px 45vh;
+  animation: animateIn .1s .5s forwards;
+  visibility: hidden;
+}
+
+.hero .italic {
+  font-family: Italic;
+  font-size: 1.6em;
+  margin-right: 1vw;
+}
+
+.hero p {
+  font-size: 6.5vw;
+  line-height: 9vw;
+  margin: 0;
+}
+
+.hero .pixelated {
+  font-family: Pixel;
+  font-size: 1.3em;
+}
+
+@media (min-width: 800px) {
+  .hero .italic {
+    font-size: 1.6em;
+    margin-right: 10px;
+  }
+
+  .hero p {
+    font-size: 42px;
+    line-height: 56px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero {
+    padding-top: 30vh;
+  }
+
+  .hero .italic {
+    font-size: 1.5em;
+  }
+
+  .hero p {
+    font-size: 3.8vw;
+    line-height: 4.5vw;
+  }
+}
+
+@media (min-width: 1800px) {
+  .hero {
+    padding-top: calc(8vw + 200px);
+  }
+
+  .hero p {
+    font-size: 70px;
+    line-height: 82px;
+  }
+}
+
+@keyframes animateIn {
+  to {
+    visibility: visible;
+  }
+}
+
+/* ---------- Loader curtain ---------- */
+.loader {
+  height: calc(100vh + 200px);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.loader svg {
+  height: 100%;
+  width: 110%;
+}
+
+.loader svg path {
+  fill: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero {
+    animation: none;
+    visibility: visible;
+  }
+}
+
+/* =========================================================================
+   Project list — ported from indextocopy.html `.project-container`
+   (vw column widths -> %, no full-screen min-height/padding-top, single
+   full-width screenshot per project).
+   ========================================================================= */
+/* Breathing room between the last Work Timeline table and the Projects header.
+   Adjacent sibling margins collapse, so this overrides the table's own
+   `margin-bottom` instead of adding to it. */
+#projects {
+  margin-top: calc(var(--line-height) * 5);
+}
+
+.project-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 60px;
+  position: relative;
+  z-index: 3;
+}
+
+/* index.css `*+* { margin-top }` would add gaps between rows/lines
+   (`.background` is a sibling of the row's <p>s, so it must be reset too —
+   otherwise its margin shifts it down and shrinks its `inset: 0` box). */
+.project-header,
+.line,
+.project,
+.project-body,
+.container-row,
+.tags,
+.image-container,
+.background {
+  margin-top: 0;
+}
+
+.project-header {
+  display: flex;
+  font-size: 19px;
+  text-transform: uppercase;
+  color: #b1b1b1;
+}
+
+.project-header p {
+  margin: 0;
+}
+
+.project-header p:nth-of-type(2),
+.project-header p:nth-of-type(3) {
+  display: none;
+}
+
+.project-header p:first-of-type {
+  width: 50%;
+}
+
+.line {
+  background-color: #fff;
+  height: 1px;
+  width: 100%;
+  flex: none;
+  position: relative;
+}
+
+.project {
+  display: flex;
+  cursor: pointer;
+  position: relative;
+  z-index: 22;
+  overflow: hidden;
+}
+
+.background {
+  display: none;
+}
+
+.project p {
+  font-size: 14px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: relative;
+  z-index: 1;
+  margin: 0;
+}
+
+.project p:first-of-type {
+  width: 50%;
+  transition: padding .3s;
+}
+
+.project p:nth-of-type(4) {
+  transition: padding .3s;
+}
+
+.project p:nth-of-type(2),
+.project p:nth-of-type(3) {
+  display: none;
+}
+
+.project-body {
+  font-size: 18px;
+  line-height: 1.3;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  height: 0;
+}
+
+.project-body p {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.project-body a {
+  display: inline-block;
+  background-color: #fff;
+  color: #000;
+  border-radius: 25px;
+  padding: 10px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 0;
+}
+
+.project-body a:link,
+.project-body a:visited {
+  color: #000;
+}
+
+.tags {
+  display: flex;
+  font-size: 12px;
+  gap: 20px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.tags p {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.tags p:before {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 8px;
+  background-color: #fff;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.images-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: 50px;
+  width: 100%;
+}
+
+.image-wrapper {
+  opacity: 0;
+  transition: all .3s cubic-bezier(.3, .2, .2, .8);
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  transition: all .3s cubic-bezier(.3, .2, .2, .8);
+  background-color: #3a3a3a;
+}
+
+.image-container img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  object-fit: cover;
+}
+
+/* Portrait screenshots (Nexton's phone captures, 1440x3120) would otherwise
+   become four very tall, full-width stacks on phones. Show them two per row
+   on small screens. `aspect-ratio: 6 / 13` matches the captures, so the
+   `object-fit: cover` above displays the whole screenshot without cropping.
+   The `min-width: 800px` rules take over from here on larger screens. */
+@media (max-width: 799px) {
+  .images-container.portrait {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .images-container.portrait .image-container {
+    width: calc((100% - 10px) / 2);
+    height: auto;
+    aspect-ratio: 6 / 13;
+  }
+}
+
+/* Award badge inside a project body (source `.project-award`) */
+.project-award {
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+
+.project-award img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  object-fit: contain;
+}
+
+.container-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 800px) {
+  .project-header p:nth-of-type(2),
+  .project-header p:nth-of-type(3) {
+    display: block;
+  }
+
+  /* Collapsed rows: the columns now sum to 100% so flex no longer shrinks
+     them, and `Project` gets the extra room (the row reads wider overall). */
+  .project-header p:first-of-type {
+    width: 42%;
+  }
+
+  .project-header p:nth-of-type(2) {
+    width: 30%;
+  }
+
+  .project-header p:nth-of-type(3) {
+    width: 20%;
+  }
+
+  .project-header p:nth-of-type(4) {
+    width: 8%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .project p {
+    font-size: 15px;
+  }
+
+  .project p:first-of-type {
+    width: 42%;
+  }
+
+  .project p:nth-of-type(2) {
+    width: 30%;
+  }
+
+  .project p:nth-of-type(3) {
+    width: 20%;
+  }
+
+  .project p:nth-of-type(4) {
+    width: 8%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .project p:nth-of-type(2),
+  .project p:nth-of-type(3) {
+    display: flex;
+  }
+
+  .project-body {
+    font-size: 22px;
+  }
+
+  .project-body p {
+    width: 100%;
+  }
+
+  .image-container {
+    height: 420px;
+  }
+
+  /* source: screenshot rows start wrapping side-by-side from 800px up */
+  .images-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+@media (min-width: 1200px) {
+  .project {
+    overflow: hidden;
+    transition: color .2s;
+  }
+
+  .background {
+    display: block;
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    background-color: #fff;
+    transform: translateY(-101%);
+    will-change: transform;
+    /* decorative only — must never swallow the row's own hover */
+    pointer-events: none;
+  }
+
+  .project:hover {
+    color: #000;
+  }
+
+  .project:hover p:first-of-type {
+    padding-left: 15px;
+  }
+
+  .project:hover p:nth-of-type(4) {
+    padding-right: 15px;
+  }
+
+  .project-body {
+    font-size: 24px;
+  }
+
+  .project-body p {
+    width: 100%;
+  }
+
+  .tags p {
+    font-size: 16px;
+  }
+
+  .tags p:before {
+    margin-right: 8px;
+  }
+
+  .image-container {
+    height: 460px;
+  }
+
+  /* Source 3-up grid — kicks in as soon as a row has 2+ screenshots; a lone
+     screenshot keeps the full-width `cover` treatment from the base rules. */
+  .images-container:has(> .image-container + .image-container) .image-container {
+    height: 25vw;
+    /* 3 columns + 2 gaps of 10px, with 2px of slack — the source value of
+       32.7% left only 0.1px and could tip the third shot onto a second row. */
+    width: calc((100% - 32px) / 3);
+  }
+
+  .images-container:has(> .image-container + .image-container) .image-container img {
+    object-fit: contain;
+  }
+
+  /* A row of 4+ screenshots (e.g. Nexton's phone shots) fits on a single line:
+     4 columns + 3 gaps of 10px, with 2px of slack so subpixel rounding can
+     never push the last one onto a second row. The `:has()` chain makes this
+     selector more specific than the 3-up rule above, so it wins here. */
+  .images-container:has(> .image-container + .image-container + .image-container + .image-container) .image-container {
+    width: calc((100% - 32px) / 4);
+  }
+}
+
+@media (min-width: 1800px) {
+  .project p {
+    font-size: 17px;
+  }
+
+  .project-body {
+    font-size: 26px;
+  }
+
+  .project-body p {
+    width: 100%;
+  }
+
+  .image-container {
+    height: 520px;
+  }
+}
+
+/* =========================================================================
+   Interactive grid — ported verbatim from indextocopy.html.
+   A 20-column field of 5vw cells that flashes white under the cursor and
+   fades out as the page scrolls past the hero.
+   ========================================================================= */
+.grid {
+  display: none;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  top: 55px;
+  position: absolute;
+}
+
+/* index.css `*+* { margin-top }` would push every grid cell apart */
+.grid,
+.grid .column,
+.grid .column div {
+  margin: 0;
+}
+
+.grid .column {
+  width: 5vw;
+}
+
+.column div {
+  width: 100%;
+  height: 5vw;
+}
+
+@media (min-width: 800px) {
+  .grid {
+    display: flex;
+  }
+}
+
+/* `.project-body p { width: 100% }` (full-width description paragraphs, set
+   above and in every breakpoint) also matches the tag `p`s nested inside
+   `.tags`, which would stretch each chip to a full row and stack them one per
+   line. Higher specificity here keeps the chips inline, as designed. */
+.project-body .tags p {
+  width: auto;
+}
+
+/* =========================================================================
+   Large screens — stretch the Work Timeline + Projects to 90% of the page.
+   The centred `body` is capped at min(1100px, 96vw), which leaves a lot of
+   empty space on either side on big monitors. This "full-bleed" trick frees
+   only those two sections: `margin-left: 50%` is half of the body's content
+   box, then translating back by half of the element's own (90vw) width
+   re-centres it on the page. `body` already has `overflow-x: hidden`, so the
+   90vw boxes never introduce a horizontal scrollbar. The header, hero and
+   footer keep the narrower reading width.
+   ========================================================================= */
+@media (min-width: 1200px) {
+
+  #work-timeline,
+  #work-timeline~table,
+  #projects,
+  .project-container {
+    width: 90vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+}
+

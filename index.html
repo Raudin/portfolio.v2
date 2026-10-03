@@ -12,8 +12,8 @@
     <!-- Social media share -->
     <meta property="og:title" content="Muga Mark">
     <meta property="site_name" content="Muga Mark">
-    <meta property="og:description" content="Explore Mark's projects and professional background."">
-    <meta property=" og:image" content="https://muga.vercel.app/assets/favicon.ico">
+    <meta property="og:description" content="Explore Mark's projects and professional background.">
+    <meta property="og:image" content="https://muga.vercel.app/assets/favicon.ico">
     <meta property="og:url" content="https://muga.vercel.app/">
     <meta property="og:type" content="profile">
     
@@ -21,55 +21,68 @@
     <title>Mark Muga</title>
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="reset.css" />
-    <link href="https://fonts.cdnfonts.com/css/jetbrains-mono-2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.18/dist/lenis.css">
+    <link rel="stylesheet" href="assets/fonts/fonts.css" />
     <link rel="preload" href="index.css" as="style" onload="this.rel='stylesheet'">
     <noscript>
         <link rel="stylesheet" href="index.css">
     </noscript>
     <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="hero.css" />
     <link rel="preload" href="assets/pp1.webp" as="image">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://unpkg.com/@studio-freight/lenis" defer></script>
+
+    <!-- Animation libraries (ported from indextocopy.html) -->
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script defer src="hero.js"></script>
 </head>
 
 <body>
-    <header>    
-        <h1 class="title">
-            <a href="/" class="scramble" style="text-decoration: none; color: inherit;">MUGA MARK</a>
-        </h1>
-    </header>
-    <div class="grid">
-        <div>
-            <p>A software engineer currently working at <em>SCHOOLTRY</em></p>
-            <p>Contact me at <a href="mailto:markmuga72@gmail.com"><em>markmuga72@gmail.com</em></a></p>
-            <p>
-                <a href="https://github.com/raudin" target="_blank" rel="noopener noreferrer"><em class="scramble">GITHUB</em></a>
-                <a href="https://www.linkedin.com/in/markmuga/" target="_blank"
-                    rel="noopener noreferrer"><em class="scramble">LINKEDIN</em></a>
-            </p>
-        </div>
-        <div>
-            <picture>
-                <img id="profile-picture" src="assets/pp1.webp" alt="profile picture" width="200px" height="200px">
-            </picture>
-        </div>
-    </div>
-    <nav>
-        <button onclick="window.location.href='about-me.html'" style="
-            min-width: 44px;
-            min-height: 44px;
-            padding: 12px 20px;
-            margin: 8px 16px 8px 8px;
-            display: inline-block;
-            cursor: pointer;
-            border: 1px solid currentColor;
-            background: transparent;
-        "><em>About Me</em></button>
-    </nav>
-    <h2 id="work timeline">Work Timeline</h2>
+    <div class="loader" aria-hidden="true"><svg><path></path></svg></div>
+    <div id="container" class="home" style="opacity:0">
+        <header class="header">
+            <h1 class="title">
+                <a href="/" class="scramble" style="text-decoration: none; color: inherit;">MUGA MARK</a>
+            </h1>
+            <nav class="nav">
+                <a href="mailto:markmuga72@gmail.com">
+                    <div class="wavy-phrase-container">
+                        <div class="wavy-phrase"><p>C</p><p>o</p><p>n</p><p>t</p><p>a</p><p>c</p><p>t</p></div>
+                        <div class="wavy-phrase"><p>C</p><p>o</p><p>n</p><p>t</p><p>a</p><p>c</p><p>t</p></div>
+                    </div>
+                </a>
+                <a href="https://www.linkedin.com/in/markmuga/" target="_blank" rel="noopener noreferrer">
+                    <div class="wavy-phrase-container">
+                        <div class="wavy-phrase"><p>L</p><p>i</p><p>n</p><p>k</p><p>e</p><p>d</p><p>i</p><p>n</p></div>
+                        <div class="wavy-phrase"><p>L</p><p>i</p><p>n</p><p>k</p><p>e</p><p>d</p><p>i</p><p>n</p></div>
+                    </div>
+                </a>
+                <a href="https://github.com/raudin" target="_blank" rel="noopener noreferrer">
+                    <div class="wavy-phrase-container">
+                        <div class="wavy-phrase"><p>G</p><p>i</p><p>t</p><p>h</p><p>u</p><p>b</p></div>
+                        <div class="wavy-phrase"><p>G</p><p>i</p><p>t</p><p>h</p><p>u</p><p>b</p></div>
+                    </div>
+                </a>
+            </nav>
+        </header>
+
+        <section class="hero" aria-label="Introduction">
+            <div class="line-mask"><p><span class="italic">M</span>ark <span class="italic">M</span>uga</p></div>
+            <div class="line-mask"><p>Software</p></div>
+            <div class="line-mask"><p><span class="pixelated">&#9788;Engineer&#9728;</span></p></div>
+            <div class="line-mask"><p>Solving <span class="italic">P</span>roblems</p></div>
+            <div class="line-mask"><p>Based in Nairobi</p></div>
+            <div class="line-mask"><p>Folio<span class="pixelated">&#169;</span>2026<span class="pixelated">&#9879;&#10024;</span></p></div>
+        </section>
+
+    <h2 id="work-timeline">Work Timeline</h2>
     <table>
         <tr>
-            <td colsapan="2" rowspan="2" class="width-auto">
+            <td colspan="2" rowspan="2" class="width-auto">
                 <h1 class="company">SCHOOLTRY</h1>
                 <span class="role"><em>FULLSTACK DEVELOPER</em></span>
             </td>
@@ -83,7 +96,7 @@
     </table>
     <table>
         <tr>
-            <td colsapan="2" rowspan="2" class="width-auto">
+            <td colspan="2" rowspan="2" class="width-auto">
                 <h1 class="company">First Advantage Consulting Ltd</h1>
                 <span class="role"><em>SOFTWARE ENGINEER</em></span>
             </td>
@@ -92,12 +105,12 @@
         </tr>
         <tr>
             <th>TO:</th>
-            <td class="width-min"><time style="white-space: pre;" ;>Aug 2024</time></td>
+            <td class="width-min"><time style="white-space: pre;">Aug 2024</time></td>
         </tr>
     </table>
     <table>
         <tr>
-            <td colsapan="2" rowspan="2" class="width-auto">
+            <td colspan="2" rowspan="2" class="width-auto">
                 <h1 class="company">Kenya Civil Aviation Authority</h1>
                 <span class="role">
                     <em>INFORMATION TECHNOLOGY SUPPORT OFFICER</em>
@@ -108,9 +121,126 @@
         </tr>
         <tr>
             <th>TO:</th>
-            <td class="width-min"><time style="white-space: pre;" ;>Apr 2023</time></td>
+            <td class="width-min"><time style="white-space: pre;">Apr 2023</time></td>
         </tr>
     </table>
+
+    <h2 id="projects">Projects</h2>
+    <section class="project-container">
+        <div class="project-header">
+            <p>Project</p>
+            <p>Category</p>
+            <p>Stack</p>
+            <p>Year</p>
+        </div>
+        <div class="line"></div>
+
+        <div class="project" data-index="0">
+            <p>Chama 360</p>
+            <p>Web App</p>
+            <p>Vue, Laravel, PHP</p>
+            <p>2025</p>
+            <div class="background"></div>
+        </div>
+        <div class="project-body" data-index="0">
+            <p>A comprehensive web application for managing group finances, built specifically for chamas, investment groups, and savings circles. Chama 360 provides a complete solution for tracking contributions, managing members, and generating financial reports.</p>
+            <div class="container-row">
+                <a href="https://github.com/raudin/chama360" target="_blank" rel="noopener noreferrer">See website</a>
+            </div>
+            <div class="tags"><p>Vue</p><p>Laravel</p><p>PHP</p><p>Web</p></div>
+            <div class="images-container">
+                <div class="image-container">
+                    <div class="image-wrapper"><img loading="lazy" decoding="async" src="assets/chama360/Screenshot%202026-10-03%20181030.png" alt="Chama 360 screenshot 1"></div>
+                </div>
+                <div class="image-container">
+                    <div class="image-wrapper"><img loading="lazy" decoding="async" src="assets/chama360/Screenshot%202026-10-03%20181043.png" alt="Chama 360 screenshot 2"></div>
+                </div>
+                <div class="image-container">
+                    <div class="image-wrapper"><img loading="lazy" decoding="async" src="assets/chama360/Screenshot%202026-10-03%20181416.png" alt="Chama 360 screenshot 3"></div>
+                </div>
+            </div>
+        </div>
+        <div class="line"></div>
+
+        <div class="project" data-index="1">
+            <p>Nexton</p>
+            <p>Mobile App</p>
+            <p>Go, React Native, Expo</p>
+            <p>2026</p>
+            <div class="background"></div>
+        </div>
+        <div class="project-body" data-index="1">
+            <p>Nexton is a comprehensive movie and TV show discovery, tracking, and watchlist application. It is structured as a monorepo consisting of a high-performance Go (Gin) backend and a modern React Native/Expo mobile app powered by Tamagui.</p>
+            <div class="container-row">
+                <a href="https://github.com/raudin/nexton" target="_blank" rel="noopener noreferrer">See website</a>
+            </div>
+            <div class="tags"><p>Go</p><p>React Native</p><p>Expo</p><p>Tamagui</p></div>
+            <div class="images-container portrait">
+                <div class="image-container">
+                    <div class="image-wrapper"><img loading="lazy" decoding="async" src="assets/NextOn/Screenshot_20261003_172722_NextOn.jpg" alt="Nexton mobile app screenshot 1"></div>
+                </div>
+                <div class="image-container">
+                    <div class="image-wrapper"><img loading="lazy" decoding="async" src="assets/NextOn/Screenshot_20261003_172838_NextOn.jpg" alt="Nexton mobile app screenshot 2"></div>
+                </div>
+                <div class="image-container">
+                    <div class="image-wrapper"><img loading="lazy" decoding="async" src="assets/NextOn/Screenshot_20261003_173149_NextOn.jpg" alt="Nexton mobile app screenshot 3"></div>
+                </div>
+                <div class="image-container">
+                    <div class="image-wrapper"><img loading="lazy" decoding="async" src="assets/NextOn/Screenshot_20261003_173417_NextOn.jpg" alt="Nexton mobile app screenshot 4"></div>
+                </div>
+            </div>
+        </div>
+        <div class="line"></div>
+
+        <div class="project" data-index="2">
+            <p>Ajua</p>
+            <p>Web Game</p>
+            <p>Next.js, TypeScript</p>
+            <p>2025</p>
+            <div class="background"></div>
+        </div>
+        <div class="project-body" data-index="2">
+            <p>A web-based implementation of Ajua, a traditional African strategy board game (in the family of Mancala/Oware), built with Next.js 15, React 19, and TypeScript. Play against a friend on the same device or challenge a minimax AI opponent.</p>
+            <div class="container-row">
+                <a href="https://github.com/raudin/ajua" target="_blank" rel="noopener noreferrer">See website</a>
+            </div>
+            <div class="tags"><p>Next.js</p><p>TypeScript</p><p>Game</p></div>
+            <div class="images-container">
+                <div class="image-container">
+                    <div class="image-wrapper"><img loading="lazy" decoding="async" src="assets/ajua/Screenshot%202026-10-03%20181511.png" alt="Ajua screenshot 1"></div>
+                </div>
+                <div class="image-container">
+                    <div class="image-wrapper"><img loading="lazy" decoding="async" src="assets/ajua/Screenshot%202026-10-03%20181557.png" alt="Ajua screenshot 2"></div>
+                </div>
+                <div class="image-container">
+                    <div class="image-wrapper"><img loading="lazy" decoding="async" src="assets/ajua/Screenshot%202026-10-03%20181607.png" alt="Ajua screenshot 3"></div>
+                </div>
+            </div>
+        </div>
+        <div class="line"></div>
+
+        <div class="project" data-index="3">
+            <p>Financial Aid</p>
+            <p>Machine Learning / Web</p>
+            <p>Python, Django, ML</p>
+            <p>2023</p>
+            <div class="background"></div>
+        </div>
+        <div class="project-body" data-index="3">
+            <p>This is a Django application that employs machine learning techniques, specifically logistic regression, to classify financial aid applicants and a CNN model to verify the authenticity of their submitted documents, including KCSE and KCPE certificates. Additionally, the application integrates the Africa's Talking API to send bulk SMS notifications, keeping students informed about the status of their applications.</p>
+            <div class="container-row">
+                <a href="https://github.com/Raudin/financial_aid" target="_blank" rel="noopener noreferrer">See website</a>
+            </div>
+            <div class="tags"><p>Machine Learning</p><p>Django</p><p>Web</p></div>
+            <div class="images-container">
+                <div class="image-container">
+                    <div class="image-wrapper"><img loading="lazy" decoding="async" src="assets/financialaid.webp" alt="Screenshot of the Financial Aid application"></div>
+                </div>
+            </div>
+        </div>
+        <div class="line"></div>
+    </section>
+
     <hr>
     <p style="text-align: center;" id="dynamic-time">
         <script>
@@ -123,35 +253,14 @@
 
             updateTime();
             setInterval(updateTime, 1000);
-
-            document.addEventListener('DOMContentLoaded', () => {
-            try {
-                const lenis = new Lenis({
-                    duration: 1.2,
-                    easing: (t) => t * (2 - t),
-                    smooth: true,
-                    smoothWheel: true,
-                    smoothTouch: true,
-                });
-
-                function raf(time) {
-                    lenis.raf(time);
-                    requestAnimationFrame(raf);
-                }
-
-                requestAnimationFrame(raf);
-            } catch (error) {
-                console.error('Error initializing Lenis:', error);
-            }
-        });
         </script>
-
-        <script src="scramble.js"></script>
-        <script src="animations.js"></script>
     </p>
     <p style="text-align: center;">© <em class="scramble">MUGA</em></p>
     <hr>
+    <div class="grid" aria-hidden="true"></div>
+    </div>
 
+    <script src="scramble.js"></script>
 
 </body>
 
