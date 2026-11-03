@@ -18,12 +18,12 @@
     <meta property="og:type" content="profile">
     
 
-    <title>Mark Muga</title>
+    <title>Mark Muga | Software Engineer</title>
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="reset.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.18/dist/lenis.css">
     <link rel="stylesheet" href="assets/fonts/fonts.css" />
     <link rel="preload" href="index.css" as="style" onload="this.rel='stylesheet'">
@@ -80,50 +80,38 @@
         </section>
 
     <h2 id="work-timeline">Work Timeline</h2>
-    <table>
-        <tr>
-            <td colspan="2" rowspan="2" class="width-auto">
-                <h1 class="company">SCHOOLTRY</h1>
-                <span class="role"><em>FULLSTACK DEVELOPER</em></span>
-            </td>
-            <th>FROM:</th>
-            <td class="width-min"><time style="white-space: pre;">Aug 2024</time></td>
-        </tr>
-        <tr>
-            <th>TO:</th>
-            <td class="width-min"><time style="white-space: pre;">Present</time></td>
-        </tr>
-    </table>
-    <table>
-        <tr>
-            <td colspan="2" rowspan="2" class="width-auto">
-                <h1 class="company">First Advantage Consulting Ltd</h1>
-                <span class="role"><em>SOFTWARE ENGINEER</em></span>
-            </td>
-            <th>FROM:</th>
-            <td class="width-min"><time style="white-space: pre;">Apr 2024</time></td>
-        </tr>
-        <tr>
-            <th>TO:</th>
-            <td class="width-min"><time style="white-space: pre;">Aug 2024</time></td>
-        </tr>
-    </table>
-    <table>
-        <tr>
-            <td colspan="2" rowspan="2" class="width-auto">
-                <h1 class="company">Kenya Civil Aviation Authority</h1>
-                <span class="role">
-                    <em>INFORMATION TECHNOLOGY SUPPORT OFFICER</em>
-                </span>
-            </td>
-            <th>FROM:</th>
-            <td class="width-min"><time style="white-space: pre;">Jan 2023</time></td>
-        </tr>
-        <tr>
-            <th>TO:</th>
-            <td class="width-min"><time style="white-space: pre;">Apr 2023</time></td>
-        </tr>
-    </table>
+    <div class="timeline-container">
+        <article class="timeline-card">
+            <div class="timeline-header">
+                <div class="timeline-role-info">
+                    <h3 class="company">Schooltry</h3>
+                    <p class="role">Fullstack Developer</p>
+                </div>
+                <time class="tenure" datetime="2024-08/2026">Aug 2024 – Present</time>
+            </div>
+            <p class="timeline-desc">Engineering scalable full-stack features and cloud services, streamlining educational portal workflows, and optimizing backend data pipelines.</p>
+        </article>
+        <article class="timeline-card">
+            <div class="timeline-header">
+                <div class="timeline-role-info">
+                    <h3 class="company">First Advantage Consulting Ltd</h3>
+                    <p class="role">Software Engineer</p>
+                </div>
+                <time class="tenure" datetime="2024-04/2024-08">Apr 2024 – Aug 2024</time>
+            </div>
+            <p class="timeline-desc">Architected enterprise client solutions, built responsive web applications, and collaborated with cross-functional product and design teams.</p>
+        </article>
+        <article class="timeline-card">
+            <div class="timeline-header">
+                <div class="timeline-role-info">
+                    <h3 class="company">Kenya Civil Aviation Authority</h3>
+                    <p class="role">IT Support Officer</p>
+                </div>
+                <time class="tenure" datetime="2023-01/2023-04">Jan 2023 – Apr 2023</time>
+            </div>
+            <p class="timeline-desc">Maintained internal network systems, supported database integrity, and deployed automated reporting tools for operational workflows.</p>
+        </article>
+    </div>
 
     <h2 id="projects">Projects</h2>
     <section class="project-container">
@@ -135,128 +123,143 @@
         </div>
         <div class="line"></div>
 
-        <div class="project" data-index="0">
-            <p>Chama 360</p>
+        <div class="project" data-index="0" role="button" tabindex="0" aria-expanded="false" aria-controls="project-body-0">
+            <p class="project-name"><span>Chama 360</span> <span class="project-indicator" aria-hidden="true">+</span></p>
             <p>Web App</p>
             <p>Vue, Laravel, PHP</p>
             <p>2025</p>
-            <div class="background"></div>
+            <div class="background" aria-hidden="true"></div>
         </div>
-        <div class="project-body" data-index="0">
-            <p>A comprehensive web application for managing group finances, built specifically for chamas, investment groups, and savings circles. Chama 360 provides a complete solution for tracking contributions, managing members, and generating financial reports.</p>
-            <div class="container-row">
-                <a href="https://github.com/raudin/chama360" target="_blank" rel="noopener noreferrer">See website</a>
-            </div>
-            <div class="tags"><p>Vue</p><p>Laravel</p><p>PHP</p><p>Web</p></div>
-            <div class="images-container">
-                <div class="image-container">
-                    <div class="image-wrapper"><img loading="lazy" decoding="async" src="assets/chama360/Screenshot%202026-10-03%20181030.png" alt="Chama 360 screenshot 1"></div>
+        <div class="project-body" id="project-body-0" data-index="0" role="region" aria-label="Chama 360 project details">
+            <div class="project-content">
+                <p class="project-summary">A comprehensive web application for managing group finances, built specifically for chamas, investment groups, and savings circles. Chama 360 provides a complete solution for tracking contributions, managing members, and generating financial reports.</p>
+                <div class="container-row">
+                    <a href="https://github.com/raudin/chama360" target="_blank" rel="noopener noreferrer" class="project-cta">View Source Code →</a>
                 </div>
-                <div class="image-container">
-                    <div class="image-wrapper"><img loading="lazy" decoding="async" src="assets/chama360/Screenshot%202026-10-03%20181043.png" alt="Chama 360 screenshot 2"></div>
-                </div>
-                <div class="image-container">
-                    <div class="image-wrapper"><img loading="lazy" decoding="async" src="assets/chama360/Screenshot%202026-10-03%20181416.png" alt="Chama 360 screenshot 3"></div>
+                <div class="tags"><p>Vue</p><p>Laravel</p><p>PHP</p><p>Web</p></div>
+                <div class="images-container">
+                    <div class="image-container">
+                        <div class="image-wrapper"><img loading="lazy" decoding="async" src="assets/chama360/Screenshot%202026-10-03%20181030.png" alt="Chama 360 financial dashboard and balance summary"></div>
+                    </div>
+                    <div class="image-container">
+                        <div class="image-wrapper"><img loading="lazy" decoding="async" src="assets/chama360/Screenshot%202026-10-03%20181043.png" alt="Chama 360 contribution tracker and transactions table"></div>
+                    </div>
+                    <div class="image-container">
+                        <div class="image-wrapper"><img loading="lazy" decoding="async" src="assets/chama360/Screenshot%202026-10-03%20181416.png" alt="Chama 360 group settings and permission controls"></div>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="line"></div>
 
-        <div class="project" data-index="1">
-            <p>Nexton</p>
+        <div class="project" data-index="1" role="button" tabindex="0" aria-expanded="false" aria-controls="project-body-1">
+            <p class="project-name"><span>Nexton</span> <span class="project-indicator" aria-hidden="true">+</span></p>
             <p>Mobile App</p>
             <p>Go, React Native, Expo</p>
             <p>2026</p>
-            <div class="background"></div>
+            <div class="background" aria-hidden="true"></div>
         </div>
-        <div class="project-body" data-index="1">
-            <p>Nexton is a comprehensive movie and TV show discovery, tracking, and watchlist application. It is structured as a monorepo consisting of a high-performance Go (Gin) backend and a modern React Native/Expo mobile app powered by Tamagui.</p>
-            <div class="container-row">
-                <a href="https://github.com/raudin/nexton" target="_blank" rel="noopener noreferrer">See website</a>
-            </div>
-            <div class="tags"><p>Go</p><p>React Native</p><p>Expo</p><p>Tamagui</p></div>
-            <div class="images-container portrait">
-                <div class="image-container">
-                    <div class="image-wrapper"><img loading="lazy" decoding="async" src="assets/NextOn/Screenshot_20261003_172722_NextOn.jpg" alt="Nexton mobile app screenshot 1"></div>
+        <div class="project-body" id="project-body-1" data-index="1" role="region" aria-label="Nexton project details">
+            <div class="project-content">
+                <p class="project-summary">Nexton is a comprehensive movie and TV show discovery, tracking, and watchlist application. It is structured as a monorepo consisting of a high-performance Go (Gin) backend and a modern React Native/Expo mobile app powered by Tamagui.</p>
+                <div class="container-row">
+                    <a href="https://github.com/raudin/nexton" target="_blank" rel="noopener noreferrer" class="project-cta">View Source Code →</a>
                 </div>
-                <div class="image-container">
-                    <div class="image-wrapper"><img loading="lazy" decoding="async" src="assets/NextOn/Screenshot_20261003_172838_NextOn.jpg" alt="Nexton mobile app screenshot 2"></div>
-                </div>
-                <div class="image-container">
-                    <div class="image-wrapper"><img loading="lazy" decoding="async" src="assets/NextOn/Screenshot_20261003_173149_NextOn.jpg" alt="Nexton mobile app screenshot 3"></div>
-                </div>
-                <div class="image-container">
-                    <div class="image-wrapper"><img loading="lazy" decoding="async" src="assets/NextOn/Screenshot_20261003_173417_NextOn.jpg" alt="Nexton mobile app screenshot 4"></div>
+                <div class="tags"><p>Go</p><p>React Native</p><p>Expo</p><p>Tamagui</p></div>
+                <div class="images-container portrait">
+                    <div class="image-container">
+                        <div class="image-wrapper"><img loading="lazy" decoding="async" src="assets/NextOn/Screenshot_20261003_172722_NextOn.jpg" alt="Nexton mobile app onboarding and featured media feed"></div>
+                    </div>
+                    <div class="image-container">
+                        <div class="image-wrapper"><img loading="lazy" decoding="async" src="assets/NextOn/Screenshot_20261003_172838_NextOn.jpg" alt="Nexton media detail view and review breakdown"></div>
+                    </div>
+                    <div class="image-container">
+                        <div class="image-wrapper"><img loading="lazy" decoding="async" src="assets/NextOn/Screenshot_20261003_173149_NextOn.jpg" alt="Nexton watchlist management and tracking status"></div>
+                    </div>
+                    <div class="image-container">
+                        <div class="image-wrapper"><img loading="lazy" decoding="async" src="assets/NextOn/Screenshot_20261003_173417_NextOn.jpg" alt="Nexton user profile and custom movie lists"></div>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="line"></div>
 
-        <div class="project" data-index="2">
-            <p>Ajua</p>
+        <div class="project" data-index="2" role="button" tabindex="0" aria-expanded="false" aria-controls="project-body-2">
+            <p class="project-name"><span>Ajua</span> <span class="project-indicator" aria-hidden="true">+</span></p>
             <p>Web Game</p>
             <p>Next.js, TypeScript</p>
             <p>2025</p>
-            <div class="background"></div>
+            <div class="background" aria-hidden="true"></div>
         </div>
-        <div class="project-body" data-index="2">
-            <p>A web-based implementation of Ajua, a traditional African strategy board game (in the family of Mancala/Oware), built with Next.js 15, React 19, and TypeScript. Play against a friend on the same device or challenge a minimax AI opponent.</p>
-            <div class="container-row">
-                <a href="https://github.com/raudin/ajua" target="_blank" rel="noopener noreferrer">See website</a>
-            </div>
-            <div class="tags"><p>Next.js</p><p>TypeScript</p><p>Game</p></div>
-            <div class="images-container">
-                <div class="image-container">
-                    <div class="image-wrapper"><img loading="lazy" decoding="async" src="assets/ajua/Screenshot%202026-10-03%20181511.png" alt="Ajua screenshot 1"></div>
+        <div class="project-body" id="project-body-2" data-index="2" role="region" aria-label="Ajua project details">
+            <div class="project-content">
+                <p class="project-summary">A web-based implementation of Ajua, a traditional African strategy board game (in the family of Mancala/Oware), built with Next.js 15, React 19, and TypeScript. Play against a friend on the same device or challenge a minimax AI opponent.</p>
+                <div class="container-row">
+                    <a href="https://github.com/raudin/ajua" target="_blank" rel="noopener noreferrer" class="project-cta">View Source Code →</a>
                 </div>
-                <div class="image-container">
-                    <div class="image-wrapper"><img loading="lazy" decoding="async" src="assets/ajua/Screenshot%202026-10-03%20181557.png" alt="Ajua screenshot 2"></div>
-                </div>
-                <div class="image-container">
-                    <div class="image-wrapper"><img loading="lazy" decoding="async" src="assets/ajua/Screenshot%202026-10-03%20181607.png" alt="Ajua screenshot 3"></div>
+                <div class="tags"><p>Next.js</p><p>TypeScript</p><p>Game</p></div>
+                <div class="images-container">
+                    <div class="image-container">
+                        <div class="image-wrapper"><img loading="lazy" decoding="async" src="assets/ajua/Screenshot%202026-10-03%20181511.png" alt="Ajua strategy board game start interface"></div>
+                    </div>
+                    <div class="image-container">
+                        <div class="image-wrapper"><img loading="lazy" decoding="async" src="assets/ajua/Screenshot%202026-10-03%20181557.png" alt="Ajua active game board and turn interaction state"></div>
+                    </div>
+                    <div class="image-container">
+                        <div class="image-wrapper"><img loading="lazy" decoding="async" src="assets/ajua/Screenshot%202026-10-03%20181607.png" alt="Ajua match result and score modal"></div>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="line"></div>
 
-        <div class="project" data-index="3">
-            <p>Financial Aid</p>
+        <div class="project" data-index="3" role="button" tabindex="0" aria-expanded="false" aria-controls="project-body-3">
+            <p class="project-name"><span>Financial Aid</span> <span class="project-indicator" aria-hidden="true">+</span></p>
             <p>Machine Learning / Web</p>
             <p>Python, Django, ML</p>
             <p>2023</p>
-            <div class="background"></div>
+            <div class="background" aria-hidden="true"></div>
         </div>
-        <div class="project-body" data-index="3">
-            <p>This is a Django application that employs machine learning techniques, specifically logistic regression, to classify financial aid applicants and a CNN model to verify the authenticity of their submitted documents, including KCSE and KCPE certificates. Additionally, the application integrates the Africa's Talking API to send bulk SMS notifications, keeping students informed about the status of their applications.</p>
-            <div class="container-row">
-                <a href="https://github.com/Raudin/financial_aid" target="_blank" rel="noopener noreferrer">See website</a>
-            </div>
-            <div class="tags"><p>Machine Learning</p><p>Django</p><p>Web</p></div>
-            <div class="images-container">
-                <div class="image-container">
-                    <div class="image-wrapper"><img loading="lazy" decoding="async" src="assets/financialaid.webp" alt="Screenshot of the Financial Aid application"></div>
+        <div class="project-body" id="project-body-3" data-index="3" role="region" aria-label="Financial Aid project details">
+            <div class="project-content">
+                <p class="project-summary">This is a Django application that employs machine learning techniques, specifically logistic regression, to classify financial aid applicants and a CNN model to verify the authenticity of their submitted documents, including KCSE and KCPE certificates. Additionally, the application integrates the Africa's Talking API to send bulk SMS notifications, keeping students informed about the status of their applications.</p>
+                <div class="container-row">
+                    <a href="https://github.com/Raudin/financial_aid" target="_blank" rel="noopener noreferrer" class="project-cta">View Source Code →</a>
+                </div>
+                <div class="tags"><p>Machine Learning</p><p>Django</p><p>Web</p></div>
+                <div class="images-container">
+                    <div class="image-container">
+                        <div class="image-wrapper"><img loading="lazy" decoding="async" src="assets/financialaid.webp" alt="Screenshot of the Financial Aid ML classification dashboard"></div>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="line"></div>
     </section>
 
-    <hr>
-    <p style="text-align: center;" id="dynamic-time">
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer-divider" aria-hidden="true"></div>
+        <div class="footer-content">
+            <div class="footer-time-wrapper">
+                <span class="status-indicator" aria-hidden="true"></span>
+                <time id="dynamic-time" class="footer-time" aria-live="off"></time>
+            </div>
+            <p class="footer-copyright">© <span class="copyright-year">2026</span> <em class="scramble">MUGA MARK</em> — ALL RIGHTS RESERVED</p>
+        </div>
+        <div class="footer-divider" aria-hidden="true"></div>
         <script>
-            function updateTime() {
-                const now = new Date();
-                const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
-                const formattedTime = now.toLocaleString('en-us', options);
-                document.getElementById('dynamic-time').innerHTML = `${formattedTime}`;
-            }
-
-            updateTime();
-            setInterval(updateTime, 1000);
+            (function() {
+                function updateTime() {
+                    const now = new Date();
+                    const options = { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZoneName: 'short' };
+                    const el = document.getElementById('dynamic-time');
+                    if (el) el.textContent = now.toLocaleString('en-US', options);
+                }
+                updateTime();
+                setInterval(updateTime, 1000);
+            })();
         </script>
-    </p>
-    <p style="text-align: center;">© <em class="scramble">MUGA</em></p>
-    <hr>
+    </footer>
     <div class="grid" aria-hidden="true"></div>
     </div>
 

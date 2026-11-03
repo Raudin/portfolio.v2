@@ -155,8 +155,8 @@
     projects.forEach(function (project, i) {
       var bg = project.querySelector(".background");
 
-      /* line + text reveal */
-      var ps = project.querySelectorAll("p");
+      /* line + text reveal: direct child paragraphs */
+      var ps = project.querySelectorAll(".project > p");
       ps.forEach(function (p, pi) {
         gsap.fromTo(p, { top: 50 }, {
           top: 0, duration: 0.5, ease: EASE, delay: 0.2 * (pi + 1),
@@ -164,13 +164,7 @@
         });
       });
 
-      /* hover slide.
-         hero.css hides the bar with `transform: translateY(-101%)`, but GSAP
-         reads that computed matrix as `y: -39.6px` — the `%` unit is lost in a
-         matrix — so a `yPercent` tween stacked on top of it parked the bar ON
-         the row (0px) or two rows above it (-202%) instead of off-screen.
-         Normalise GSAP's model once: drop the px offset, own the bar with
-         yPercent only. */
+      /* hover slide */
       if (bg) {
         gsap.set(bg, { y: 0, yPercent: -101 });
 
@@ -188,29 +182,65 @@
         });
       }
 
-      /* click to open / close body */
-      project.addEventListener("click", function () {
+      function toggleProject() {
         var body = projectBodies[i];
         if (!body) return;
         var isOpen = activeIndex === i;
         if (isOpen) {
-          gsap.to(body, { height: 0, duration: 0.5, ease: EASE });
+          gsap.to(body, {
+            height: 0,
+            duration: 0.4,
+            ease: EASE,
+            onComplete: function () {
+              project.setAttribute("aria-expanded", "false");
+              var ind = project.querySelector(".project-indicator");
+              if (ind) ind.textContent = "+";
+              ScrollTrigger.refresh();
+            }
+          });
           activeIndex = -1;
         } else {
           projectBodies.forEach(function (b, bi) {
-            if (bi !== i) gsap.to(b, { height: 0, duration: 0.5, ease: EASE });
+            if (bi !== i) {
+              gsap.to(b, { height: 0, duration: 0.4, ease: EASE });
+              if (projects[bi]) {
+                projects[bi].setAttribute("aria-expanded", "false");
+                var oldInd = projects[bi].querySelector(".project-indicator");
+                if (oldInd) oldInd.textContent = "+";
+              }
+            }
           });
           gsap.set(body, { height: "auto" });
           var h = body.offsetHeight;
-          gsap.fromTo(body, { height: 0 }, { height: h, duration: 0.5, ease: EASE });
+          project.setAttribute("aria-expanded", "true");
+          var currentInd = project.querySelector(".project-indicator");
+          if (currentInd) currentInd.textContent = "×";
+          gsap.fromTo(body, { height: 0 }, {
+            height: h,
+            duration: 0.4,
+            ease: EASE,
+            onComplete: function () {
+              body.style.height = "auto";
+              ScrollTrigger.refresh();
+            }
+          });
           activeIndex = i;
           if (window.innerWidth < 800) {
             setTimeout(function () {
               var top = project.getBoundingClientRect().top + window.pageYOffset - 75;
               if (lenis) lenis.scrollTo(top, { duration: 1.2 });
               else window.scrollTo({ top: top, behavior: "smooth" });
-            }, 500);
+            }, 450);
           }
+        }
+      }
+
+      /* click and keyboard interaction */
+      project.addEventListener("click", toggleProject);
+      project.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          toggleProject();
         }
       });
     });
