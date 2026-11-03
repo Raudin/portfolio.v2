@@ -520,8 +520,8 @@ label input {
   bottom: 0;
   z-index: -1;
   background-image:
-    repeating-linear-gradient(var(--color) 0 1px, transparent 1px 100%),
-    repeating-linear-gradient(90deg, var(--color) 0 1px, transparent 1px 100%);
+    linear-gradient(to bottom, var(--color) 1px, transparent 1px),
+    linear-gradient(to right, var(--color) 1px, transparent 1px);
   background-size: 1ch var(--line-height);
   margin: 0;
 }

@@ -4,9 +4,9 @@
    Loaded AFTER index.css so it can safely override the theme + layout.
    ========================================================================= */
 
-/* ---------- Dark theme + Inter font ---------- */
+/* ---------- Dark theme + JetBrains Mono font ---------- */
 :root {
-  --font-family: "Inter", sans-serif;
+  --font-family: "JetBrains Mono", sans-serif;
   --text-color: #fff;
   --text-color-alt: #b1b1b1;
   --background-color: #121212;
@@ -63,6 +63,10 @@ table {
   font-family: var(--font-family);
   color: #fff;
   z-index: 9999;
+  background-color: rgba(18, 18, 18, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .header h1 {
@@ -137,7 +141,7 @@ table {
   top: 0;
   text-align: center;
   text-transform: uppercase;
-  font-family: Regular, "Inter", sans-serif;
+  font-family: Regular, "JetBrains Mono", sans-serif;
   mix-blend-mode: difference;
   color: #fff;
   z-index: 2;
@@ -359,9 +363,33 @@ table {
   margin-top: 0;
 }
 
-.project-body a:link,
-.project-body a:visited {
-  color: #000;
+.project-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 18px;
+  background-color: #fff;
+  color: #000 !important;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 9999px;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid #fff;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.project-cta:hover {
+  background-color: transparent;
+  color: #fff !important;
+}
+
+.project-cta:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
 }
 
 .tags {
@@ -689,3 +717,206 @@ table {
   }
 }
 
+
+
+/* Modern Brutalist Timeline Cards */
+.timeline-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
+  margin-bottom: 40px;
+}
+
+.timeline-card {
+  background: #171717;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 24px 28px;
+  border-radius: 4px;
+  transition: border-color 0.25s ease, background-color 0.25s ease, transform 0.25s ease;
+}
+
+.timeline-card:hover {
+  background: #1d1d1d;
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px);
+}
+
+.timeline-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.timeline-role-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.timeline-card .company {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #fff;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.timeline-card .role {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #aaa;
+  margin: 0;
+}
+
+.timeline-card .tenure {
+  font-size: 0.82rem;
+  font-family: var(--font-family-mono, monospace);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.05em;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 4px 10px;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+
+.timeline-desc {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: #c4c4c4;
+  margin: 0;
+}
+
+/* Accessible focus outlines for interactive elements */
+a:focus-visible,
+button:focus-visible,
+.project:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+/* Modern brutalist footer */
+.site-footer {
+  margin-top: 60px;
+  padding-bottom: 30px;
+  width: 100%;
+}
+
+.footer-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.15);
+  width: 100%;
+  margin: 24px 0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 8px 0;
+}
+
+.footer-time-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 6px 14px;
+  border-radius: 9999px;
+}
+
+.status-indicator {
+  width: 7px;
+  height: 7px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.footer-time {
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  font-family: var(--font-family-mono, monospace);
+  font-variant-numeric: tabular-nums;
+  color: #e0e0e0;
+}
+
+.footer-copyright {
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  color: #7d7d7d;
+  margin: 0;
+  font-family: var(--font-family-mono, monospace);
+}
+
+.footer-copyright em {
+  color: #fff;
+  font-style: normal;
+  font-weight: 600;
+}
+
+
+.project {
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.project:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: -2px;
+}
+
+.project .project-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+  flex-wrap: nowrap;
+}
+
+.project .project-indicator {
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 2px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.project[aria-expanded="true"] .project-indicator {
+  transform: rotate(45deg);
+}
+
+.project-summary {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #d1d1d1;
+  margin-bottom: 20px;
+}
+
+.image-container {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: border-color 0.25s ease;
+}
+
+.image-container:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+}
